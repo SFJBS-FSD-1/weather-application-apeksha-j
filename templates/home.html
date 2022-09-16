@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>weather</title><!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"><!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <title>FIRST FLASK APP</title>
+</head>
+<body>
+<div class="col-md-6 col-md-offset-3">
+<h1>Welcome to weather app {{userName}}</h1>
+<form method="post" action="/">
+    <input type="text" name="city" placeholder="enter_name">
+    <button type="submit">SUBMIT</button>
+</form>
+    {% if data.status==200 %}
+        <div class="col-md-6 col-md-offset-3">
+        <h2>Name of Place : {{data.place}}</h2>
+        <h3>Temperature: {{data.temp}}</h3>
+        <h3>Latitude: {{data.lat}}</h3>
+        <h3>Longitude: {{data.lon}}</h3>
+        <h3>Sunrise: {{data.sunrise}}</h3>
+        <h3>Sunset: {{data.sunset}}</h3>
+    {% elif data.status==404 %}
+        <h3>City not found</h3>
+    {% else %}
+    {% endif %}
+</div>
+</div>
+</body>
+</html>
