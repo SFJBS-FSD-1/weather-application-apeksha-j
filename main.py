@@ -2,6 +2,7 @@ from flask import Flask,render_template, request
 import requests
 # import urllib.request as myrequest
 import json
+import os
 import datetime
 
 app = Flask(__name__) #creating instance of flask
@@ -29,5 +30,6 @@ def myweather():
         data= None
         return render_template("home.html",data=data)
 
-app.run()
-#
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT",5000))
+    app.run(port=port)
